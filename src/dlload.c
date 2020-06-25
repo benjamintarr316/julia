@@ -203,6 +203,7 @@ JL_DLLEXPORT void *jl_load_dynamic_library(const char *modname, unsigned flags, 
 #ifdef _OS_WINDOWS_
                     if (i == 0) { // LoadLibrary already tested the extensions, we just need to check the `stat` result
 #endif
+                        jl_printf(JL_STDERR, "Attempting load: %s\n", path);
                         handle = jl_dlopen(path, flags);
                         if (handle)
                             goto done;
